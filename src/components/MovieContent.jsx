@@ -3,24 +3,18 @@ import './movieContent.css';
 import titleImg from '../images/transformer-title.png'
 import Button from './Button';
 
-function MovieContent() {
+function MovieContent({movie}) {
   return (
-    <div className="content active">
-    <img src={titleImg} alt="Movie Title" className="movie-title" />
-    <h4><span>Year</span>
-    <span><i>age</i></span>
-    <span>length</span>
-    <span>category</span>
+    <div className={`content ${movie.active ? 'active' : undefined}`}>
+    <img src={movie.titleImg} alt="Movie Title" className="movie-title" />
+    <h4><span>{movie.year}</span>
+    <span><i>{movie.ageLimit}</i></span>
+    <span>{movie.length}</span>
+    <span>{movie.category}</span>
 
     </h4>
     <p>
-    
-"Transformers" is a sci-fi action film franchise known for 
-its epic battles between giant alien robots, 
-Autobots, and Decepticons. Directed by Michael Bay, the series
- explores the war between these mechanical beings as they seek to control 
- the fate of Earth.
-    
+    {movie.description}
 
     </p>
     <div className="button">
